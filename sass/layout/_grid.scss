@@ -1,0 +1,59 @@
+.grid {
+  display: grid;
+  row-gap: $gutter-vertical;
+  column-gap: $gutter-horizontal;
+
+  &--2-cols {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15rem;
+
+    @include respond(tab-land) {
+      column-gap: $gutter-horizontal-sl;
+    }
+
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      row-gap: $gutter-vertical-sl;
+    }
+  }
+
+  &--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--4-cols {
+    grid-template-columns: repeat(4, 1fr);
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      row-gap: $gutter-vertical-sl;
+    }
+  }
+
+  &--1-to-2-cols {
+    grid-template-columns: 1fr 2fr;
+
+    @include respond(tab-port) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 200px 1fr;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: $gutter-vertical;
+}
